@@ -8,7 +8,7 @@ What to be added:
 - Dragon Stone
 - ArmorBench/Anvil
 - Entities
-- MOAR!
+- Custom Block/Item IDs
 
 Added stuff that's not on list:
 
@@ -17,3 +17,4 @@ Added stuff that's not on list:
 Added:
 
 Ores and Ingots
+Tools
