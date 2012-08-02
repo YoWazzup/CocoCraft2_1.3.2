@@ -1,0 +1,17 @@
+What to be added:
+
+
+- Ores, Coco, Silver, Mithril, Amethyst.
+- Tools and Armor.
+- Magic Books.
+- Machinery
+- Dragon Stone
+- ArmorBench/Anvil
+- Entities
+- MOAR!
+
+Added stuff that's not on list:
+
+
+
+
