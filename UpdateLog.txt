@@ -10,6 +10,11 @@ What to be added:
 - Entities
 - Custom Block/Item IDs
 
+Important to be added:
+
+- Configurable IDs
+
+
 Added stuff that's not on list:
 
 
