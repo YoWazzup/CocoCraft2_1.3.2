@@ -1,5 +1,4 @@
-Added Ores and Ingots!
-
+Added Recipes. Coco Armor's in, no recipes for it yet, and it is buggy :(
 
 
 What to be added:
