@@ -21,29 +21,39 @@ public class WorldGeneratorCoco implements IWorldGenerator{
 
 	private void generateSurface(World world, Random random, int blockX, int blockZ)
 	{
+		int i;
+		
+		for (i = 0; i < 12; ++ i)
 		{
 			int Xcoord = blockX + random.nextInt(16);
 			int Ycoord = random.nextInt(20);
 			int Zcoord = blockZ + random.nextInt(16);
 			(new WorldGenMinable(CocoCraft.CocoStone.blockID, 4)).generate(world, random, Xcoord, Ycoord, Zcoord);
+			//System.out.println("Generated Ore Coco");
 		}
+		for (i = 0; i < 16; ++ i)
 		{
 			int Xcoord = blockX + random.nextInt(16);
 			int Ycoord = random.nextInt(50);
 			int Zcoord = blockZ + random.nextInt(16);
-			(new WorldGenMinable(CocoCraft.MithrilOre.blockID, 4)).generate(world, random, Xcoord, Ycoord, Zcoord);
+			(new WorldGenMinable(CocoCraft.MithrilOre.blockID, 6)).generate(world, random, Xcoord, Ycoord, Zcoord);
+			//System.out.println("Generated Ore Mithril");
 		}
+		for (i = 0; i < 16; ++ i)
 		{
 			int Xcoord = blockX + random.nextInt(16);
 			int Ycoord = random.nextInt(50);
 			int Zcoord = blockZ + random.nextInt(16);
 			(new WorldGenMinable(CocoCraft.SilverOre.blockID, 4)).generate(world, random, Xcoord, Ycoord, Zcoord);
+			//System.out.println("Generated Ore Silver");
 		}
+		for (i = 0; i < 10; ++ i)
 		{
 			int Xcoord = blockX + random.nextInt(16);
 			int Ycoord = random.nextInt(14);
 			int Zcoord = blockZ + random.nextInt(16);
 			(new WorldGenMinable(CocoCraft.AmethystOre.blockID, 4)).generate(world, random, Xcoord, Ycoord, Zcoord);
+			//System.out.println("Generated Ore Amethyst");
 		}
 	}
 	private void generateNether(World world, Random random, int blockX, int blockY)
