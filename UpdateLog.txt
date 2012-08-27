@@ -1,4 +1,5 @@
-Messed around, fucked things up, used roll back to fix. Configurable IDs for items though.
+Added metadata to the ores, and ore blocks! Started to add the magic books. Added my own method for metadata smelting.
+
 
 What to be added:
 

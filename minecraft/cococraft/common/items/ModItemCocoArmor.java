@@ -1,3 +1,4 @@
+/**
 package cococraft.common.items;
 
 import cococraft.common.CocoCraft;
@@ -34,3 +35,4 @@ public class ModItemCocoArmor extends ItemArmor implements IArmorTextureProvider
 		return "CC/Armor/coco_2.png";
 	}
 }
+**/
