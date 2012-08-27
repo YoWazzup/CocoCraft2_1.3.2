@@ -1,5 +1,4 @@
-Added Recipes. Coco Armor's in, no recipes for it yet, and it is buggy :(
-
+Messed around, fucked things up, used roll back to fix. Configurable IDs for items though.
 
 What to be added:
 
