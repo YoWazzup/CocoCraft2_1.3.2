@@ -1,5 +1,4 @@
-Added metadata to the ores, and ore blocks! Started to add the magic books. Added my own method for metadata smelting.
-
+Added Armor, properly. Added SuperStone!
 
 What to be added:
 

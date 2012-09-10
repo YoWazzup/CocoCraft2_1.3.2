@@ -7,11 +7,14 @@ import cococraft.common.blocks.ModBlockOre;
 import cococraft.common.blocks.ModBlockOreBlock;
 import cococraft.common.blocks.ModItemOre;
 import cococraft.common.items.ModItem;
+import cococraft.common.items.ModItemAmethystArmor;
 import cococraft.common.items.ModItemAxe;
-import cococraft.common.items.ModItemBookT;
+import cococraft.common.items.ModItemCocoArmor;
+import cococraft.common.items.ModItemMithrilArmor;
 import cococraft.common.items.ModItemHoe;
 import cococraft.common.items.ModItemPick;
 import cococraft.common.items.ModItemShovel;
+import cococraft.common.items.ModItemSilverArmor;
 import cococraft.common.items.ModItemSword;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.Block;
@@ -20,6 +23,7 @@ import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
+import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
@@ -38,12 +42,7 @@ public class CocoCraft
 {
 	static Configuration config = new Configuration(new File(Minecraft.getMinecraftDir(), "/config/CocoCraft2/CocoCraft2.cfg"));
 
-	public static int CocoStoneID = configurationProperties(config);
-	public static int MithrilOreID;
-	public static int SilverOreID;
-	public static int AmethystOreID;
-	
-	public static int OresID;// = 180;
+	public static int OresID = configurationProperties(config); //180
 	public static int OreBlockID;// = 181;
 
 	public static int AmethystID;
@@ -74,10 +73,26 @@ public class CocoCraft
 	public static int AmethystShovelID;
 	public static int AmethystSwordID;
 	public static int AmethystHoeID;
-	
-	public static int BookOfTimeID;
-	public static int BookOfHealingID;
-	public static int BookOfExpID;
+
+	public static int CocoHelmetID;
+	public static int CocoChestID;
+	public static int CocoLegsID;
+	public static int CocoBootsID;
+
+	public static int MithrilHelmetID;
+	public static int MithrilChestID;
+	public static int MithrilLegsID;
+	public static int MithrilBootsID;
+
+	public static int SilverHelmetID;
+	public static int SilverPlateID;
+	public static int SilverLegsID;
+	public static int SilverBootsID;
+
+	public static int AmethystHelmetID;
+	public static int AmethystPlateID;
+	public static int AmethystLegsID;
+	public static int AmethystBootsID;
 
 	@SidedProxy(clientSide = "cococraft.client.ClientProxyCocoCraft", serverSide = "cococraft.common.CommonProxyCocoCraft")
 	public static CommonProxyCocoCraft proxy;
@@ -93,6 +108,11 @@ public class CocoCraft
 
 	//Adds Armor Materials
 	static EnumArmorMaterial COCO = EnumHelper.addArmorMaterial("COCO", 48, new int[]{4, 8, 6, 2}, 4);
+	static EnumArmorMaterial MITHRIL = EnumHelper.addArmorMaterial("MITHRIL", 22, new int[] {2, 5, 4, 2}, 5);
+	static EnumArmorMaterial SILVER = EnumHelper.addArmorMaterial("SILVER", 26, new int[] {3, 6, 5, 3}, 5);
+	static EnumArmorMaterial AMETHYST = EnumHelper.addArmorMaterial("AMETHYST", 36, new int[] {3, 6, 6, 2}, 5);
+	
+
 
 	//Blocks
 	public static final Block Ores = (new ModBlockOre(OresID, 0)).setBlockName("Ores").setResistance(3F).setHardness(3F);
@@ -129,12 +149,27 @@ public class CocoCraft
 	public static final Item AmethystSword = (new ModItemSword(AmethystSwordID, toolAmethyst)).setIconCoord(2,2).setItemName("AmethystSword");
 	public static final Item AmethystHoe = (new ModItemHoe(AmethystHoeID, toolAmethyst)).setIconCoord(3,2).setItemName("AmethystHoe");
 
-	public static final Item BookOfTime = (new ModItemBookT(BookOfTimeID)).setIconCoord(0,0).setItemName("BookOfT");
 	//Armor
-	//public static final Item CocoHelmet = (new ModItemCocoArmor(5024, COCO, 6, 0)).setIconCoord(0,3).setItemName("CocoHelmet");
-	//public static final Item CocoChest = (new ModItemCocoArmor(5025, COCO, 6, 1)).setIconCoord(1,3).setItemName("CocoChest");
-	//public static final Item CocoLegs = (new ModItemCocoArmor(5026, COCO, 6, 2)).setIconCoord(2,3).setItemName("CocoLegs");
-	//public static final Item CocoBoots = (new ModItemCocoArmor(5027, COCO, 6, 3)).setIconCoord(3,3).setItemName("CocoBoots");
+	public static final Item CocoHelmet = (new ModItemCocoArmor(CocoHelmetID, COCO, ModLoader.addArmor("Coco"), 0)).setIconCoord(0,3).setItemName("CocoHelmet");
+	public static final Item CocoChest = (new ModItemCocoArmor(CocoChestID, COCO, ModLoader.addArmor("Coco"), 1)).setIconCoord(1,3).setItemName("CocoChest");
+	public static final Item CocoLegs = (new ModItemCocoArmor(CocoLegsID, COCO, ModLoader.addArmor("Coco"), 2)).setIconCoord(2,3).setItemName("CocoLegs");
+	public static final Item CocoBoots = (new ModItemCocoArmor(CocoBootsID, COCO, ModLoader.addArmor("Coco"), 3)).setIconCoord(3,3).setItemName("CocoBoots");
+
+	public static final Item MithrilHelmet = (new ModItemMithrilArmor(MithrilHelmetID, MITHRIL, ModLoader.addArmor("Mithril"), 0)).setIconCoord(4,3).setItemName("MithrilHelmet");
+	public static final Item MithrilChest = (new ModItemMithrilArmor(MithrilChestID, MITHRIL, ModLoader.addArmor("Mithril"), 1)).setIconCoord(5,3).setItemName("MithrilChest");
+	public static final Item MithrilLegs = (new ModItemMithrilArmor(MithrilLegsID, MITHRIL, ModLoader.addArmor("Mithril"), 2)).setIconCoord(6,3).setItemName("MithrilLegs");
+	public static final Item MithrilBoots = (new ModItemMithrilArmor(MithrilBootsID, MITHRIL, ModLoader.addArmor("Mithril"), 3)).setIconCoord(7,3).setItemName("MithrilBoots");
+
+	public static final Item SilverHelmet = (new ModItemSilverArmor(SilverHelmetID, SILVER, ModLoader.addArmor("Silver"), 0)).setIconCoord(8,3).setItemName("CocoHelmet12");
+	public static final Item SilverChest = (new ModItemSilverArmor(SilverPlateID, SILVER, ModLoader.addArmor("Silver"), 1)).setIconCoord(9,3).setItemName("CocoPlate22");
+	public static final Item SilverLegs = (new ModItemSilverArmor(SilverLegsID, SILVER, ModLoader.addArmor("Silver"), 2)).setIconCoord(10,3).setItemName("CocoLegs32");
+	public static final Item SilverBoots = (new ModItemSilverArmor(SilverBootsID, SILVER, ModLoader.addArmor("Silver"), 3)).setIconCoord(11,3).setItemName("CocoBoots42");
+
+	public static final Item AmethystHelmet = (new ModItemAmethystArmor(AmethystHelmetID, AMETHYST, ModLoader.addArmor("Amethyst"), 0)).setIconCoord(12,3).setItemName("1CocoHelmet12");
+	public static final Item AmethystChest = (new ModItemAmethystArmor(AmethystPlateID, AMETHYST, ModLoader.addArmor("Amethyst"), 1)).setIconCoord(13,3).setItemName("1CocoPlate22");
+	public static final Item AmethystLegs = (new ModItemAmethystArmor(AmethystLegsID, AMETHYST, ModLoader.addArmor("Amethyst"), 2)).setIconCoord(14,3).setItemName("1CocoLegs32");
+	public static final Item AmethystBoots = (new ModItemAmethystArmor(AmethystBootsID, AMETHYST, ModLoader.addArmor("Amethyst"), 3)).setIconCoord(15,3).setItemName("1CocoBoots42");
+
 
 	@Init
 	public void load(FMLInitializationEvent event)
@@ -142,7 +177,7 @@ public class CocoCraft
 
 		Item.itemsList[OreBlockID] = new ItemOreBlock(OreBlockID-256, OreBlock).setItemName("oreBlock");
 		Item.itemsList[OresID] = new ModItemOre(OresID-256, Ores).setItemName("ores");
-		
+
 		addSmelting();
 		addNames();
 		registerBlocks();
@@ -188,12 +223,15 @@ public class CocoCraft
 		gr.addRecipe(new ItemStack(AmethystShovel, 1), new Object[] {" I ", " S ", " S ", 'I', AmethystGem, 'S', Item.stick});
 		gr.addRecipe(new ItemStack(AmethystSword, 1), new Object[] {" I ", " I ", " S ", 'I', AmethystGem, 'S', Item.stick});
 		gr.addRecipe(new ItemStack(AmethystHoe, 1), new Object[] {"II ", " S ", " S ", 'I', AmethystGem, 'S', Item.stick});
-		
+
+		//Ore Block Recipes!
 		gr.addRecipe(new ItemStack(OreBlock, 1, 0), new Object[]{"III", "III", "III", 'I', CocoIngot});
 		gr.addRecipe(new ItemStack(OreBlock, 1, 1), new Object[]{"III", "III", "III", 'I', MithrilIngot});
 		gr.addRecipe(new ItemStack(OreBlock, 1, 2), new Object[]{"III", "III", "III", 'I', SilverIngot});
 		gr.addRecipe(new ItemStack(OreBlock, 1, 3), new Object[]{"III", "III", "III", 'I', AmethystGem});
-		
+
+		//SuperStone Recipe!
+		gr.addRecipe(new ItemStack(OreBlock, 3, 4), new Object[]{"1 1", " 2 ", "1 1", '1', Item.ingotGold, '2', Block.blockDiamond });
 	}
 	public void ShapelessRecipes()
 	{
@@ -201,10 +239,29 @@ public class CocoCraft
 		gr.addShapelessRecipe(new ItemStack(MithrilIngot, 9), new Object[] {new ItemStack(OreBlock, 1, 1)});
 		gr.addShapelessRecipe(new ItemStack(SilverIngot, 9), new Object[] {new ItemStack(OreBlock, 1, 2)});
 		gr.addShapelessRecipe(new ItemStack(AmethystGem, 9), new Object[] {new ItemStack(OreBlock, 1, 3)});
-		
+
 	}
 	public void ArmorRecipes()
 	{
+		gr.addRecipe(new ItemStack(CocoChest, 1), new Object[] {"1 1", "111", "111", Character.valueOf('1'), CocoIngot});
+		gr.addRecipe(new ItemStack(CocoLegs, 1), new Object[] {"111", "1 1", "1 1", Character.valueOf('1'), CocoIngot});
+		gr.addRecipe(new ItemStack(CocoBoots, 1), new Object[] {"1 1", "1 1", Character.valueOf('1'), CocoIngot});
+		gr.addRecipe(new ItemStack(CocoHelmet, 1), new Object[] {"111", "1 1", Character.valueOf('1'), CocoIngot});
+
+		gr.addRecipe(new ItemStack(MithrilChest, 1), new Object[] {"1 1", "111", "111", Character.valueOf('1'), MithrilIngot});
+		gr.addRecipe(new ItemStack(MithrilLegs, 1), new Object[] {"111", "1 1", "1 1", Character.valueOf('1'), MithrilIngot});
+		gr.addRecipe(new ItemStack(MithrilBoots, 1), new Object[] {"1 1", "1 1", Character.valueOf('1'), MithrilIngot});
+		gr.addRecipe(new ItemStack(MithrilHelmet, 1), new Object[] {"111", "1 1", Character.valueOf('1'), MithrilIngot});
+
+		gr.addRecipe(new ItemStack(SilverChest, 1), new Object[] {"1 1", "111", "111", Character.valueOf('1'), SilverIngot});
+		gr.addRecipe(new ItemStack(SilverLegs, 1), new Object[] {"111", "1 1", "1 1", Character.valueOf('1'), SilverIngot});
+		gr.addRecipe(new ItemStack(SilverBoots, 1), new Object[] {"1 1", "1 1", Character.valueOf('1'), SilverIngot});
+		gr.addRecipe(new ItemStack(SilverHelmet, 1), new Object[] {"111", "1 1", Character.valueOf('1'), SilverIngot});
+
+		gr.addRecipe(new ItemStack(AmethystChest, 1), new Object[] {"1 1", "111", "111", Character.valueOf('1'), AmethystGem});
+		gr.addRecipe(new ItemStack(AmethystLegs, 1), new Object[] {"111", "1 1", "1 1", Character.valueOf('1'), AmethystGem});
+		gr.addRecipe(new ItemStack(AmethystBoots, 1), new Object[] {"1 1", "1 1", Character.valueOf('1'), AmethystGem});																																														
+		gr.addRecipe(new ItemStack(AmethystHelmet, 1), new Object[] {"111", "1 1", Character.valueOf('1'), AmethystGem});
 
 	}
 	public void addSmelting()
@@ -213,7 +270,7 @@ public class CocoCraft
 		CocoCraft.addMetaSmelting(Ores.blockID, 1, new ItemStack(MithrilIngot, 1));
 		CocoCraft.addMetaSmelting(Ores.blockID, 2, new ItemStack(SilverIngot, 1));
 	}
-	
+
 	public void registerBlocks()
 	{
 		//Registers Blocks
@@ -226,12 +283,13 @@ public class CocoCraft
 		lg.instance().addStringLocalization("tile.Ores.mithrilOre.name", "Mithril Ore");
 		lg.instance().addStringLocalization("tile.Ores.silverOre.name", "Silver Ore");
 		lg.instance().addStringLocalization("tile.Ores.amethystOre.name", "Amethyst Ore");
-		
+
 		lg.instance().addStringLocalization("tile.OreBlock.cocoBlock.name", "Coco Block");
 		lg.instance().addStringLocalization("tile.OreBlock.mithrilBlock.name", "Mithril Block");
 		lg.instance().addStringLocalization("tile.OreBlock.silverBlock.name", "Silver Block");
 		lg.instance().addStringLocalization("tile.OreBlock.amethystBlock.name", "Amethyst Block");
-		
+		lg.instance().addStringLocalization("tile.OreBlock.superStone.name", "Super Stone");
+
 
 		//Adds Names To Items
 		lg.addName(AmethystGem, "Amethyst Gem");
@@ -262,13 +320,26 @@ public class CocoCraft
 		lg.addName(AmethystShovel, "Amethyst Shovel");
 		lg.addName(AmethystSword, "Amethyst Sword");
 		lg.addName(AmethystHoe, "Amethyst Hoe");
-		
-		lg.addName(BookOfTime, "Book Of Time");
 
-		//lg.addName(CocoHelmet, "Coco Helmet");
-		//lg.addName(CocoChest, "Coco Chestplate");
-		//lg.addName(CocoLegs, "Coco Legs");
-		//lg.addName(CocoBoots, "Coco Boots");
+		lg.addName(CocoHelmet, "Coco Helmet");
+		lg.addName(CocoChest, "Coco Chest");
+		lg.addName(CocoLegs, "Coco Legs");
+		lg.addName(CocoBoots, "Coco Boots");
+
+		lg.addName(MithrilHelmet, "Mithril Helmet");
+		lg.addName(MithrilChest, "Mithril Chest");
+		lg.addName(MithrilLegs, "Mithril Legs");
+		lg.addName(MithrilBoots, "Mithril Boots");
+		
+		lg.addName(SilverHelmet, "Silver Helmet");
+		lg.addName(SilverChest, "Silver Chest");
+		lg.addName(SilverLegs, "Silver Legs");
+		lg.addName(SilverBoots, "Silver Boots");
+
+		lg.addName(AmethystHelmet, "Amethyst Helmet");
+		lg.addName(AmethystChest, "Amethyst Chest");
+		lg.addName(AmethystLegs, "Amethyst Legs");
+		lg.addName(AmethystBoots, "Amethyst Boots");
 	}
 	public void setToolClass()
 	{
@@ -303,7 +374,7 @@ public class CocoCraft
 	{
 		OresID = Integer.parseInt(config.getOrCreateBlockIdProperty("OresIds", 180).value);
 		OreBlockID = Integer.parseInt(config.getOrCreateBlockIdProperty("OreBlockIds", 181).value);
-		
+
 		CocoIngotID = config.getOrCreateIntProperty("CocoIngotID", "item", 15000).getInt(15000);
 		MithrilIngotID = config.getOrCreateIntProperty("MithrilIngotID", "item", 15001).getInt(15001);
 		SilverIngotID = config.getOrCreateIntProperty("SilverIngotID", "item", 15002).getInt(15002);
@@ -332,11 +403,29 @@ public class CocoCraft
 		AmethystShovelID = config.getOrCreateIntProperty("AmethystShovelID", "item", 15021).getInt(15021);
 		AmethystSwordID = config.getOrCreateIntProperty("AmethystSwordID", "item", 15022).getInt(15022);
 		AmethystHoeID = config.getOrCreateIntProperty("AmethystHoeID", "item", 15023).getInt(15023);
-		
-		BookOfTimeID = config.getOrCreateIntProperty("BookOfTimeID", "item", 15030).getInt(15030);
 
+		CocoHelmetID = config.getOrCreateIntProperty("CocoHelmetID", "item", 15024).getInt(15024);
+		CocoChestID = config.getOrCreateIntProperty("CocoChestID", "item", 15025).getInt(15025);
+		CocoLegsID = config.getOrCreateIntProperty("CocoLegsID", "item", 15026).getInt(15026);
+		CocoBootsID = config.getOrCreateIntProperty("CocoBootsID", "item", 15027).getInt(15027);
+
+		MithrilHelmetID = config.getOrCreateIntProperty("MithrilHelmetID", "item", 15028).getInt(15028);
+		MithrilChestID = config.getOrCreateIntProperty("MithrilChestID", "item", 15029).getInt(15029);
+		MithrilLegsID = config.getOrCreateIntProperty("MithrilLegsID", "item", 15030).getInt(15030);
+		MithrilBootsID = config.getOrCreateIntProperty("MithrilBootsID", "item", 15031).getInt(15031);
+
+		SilverHelmetID = config.getOrCreateIntProperty("SilverHelmetID", "item", 15032).getInt(15032);
+		SilverPlateID = config.getOrCreateIntProperty("SilverChestID", "item", 15033).getInt(15033);
+		SilverLegsID = config.getOrCreateIntProperty("SilverLegsID", "item", 15034).getInt(15034);
+		SilverBootsID = config.getOrCreateIntProperty("SilverBootsID", "item", 15035).getInt(15035);
+
+		AmethystHelmetID = config.getOrCreateIntProperty("AmethystHelmetID", "item", 15036).getInt(15036);
+		AmethystPlateID = config.getOrCreateIntProperty("AmethystChestID", "item", 15037).getInt(15037);
+		AmethystLegsID = config.getOrCreateIntProperty("AmethystLegsID", "item", 15038).getInt(15038);
+		AmethystBootsID = config.getOrCreateIntProperty("AmethystBootsID", "item", 15039).getInt(15039);
+		
 		config.save();
-		return CocoStoneID;
+		return OresID;
 
 	}
 	/**

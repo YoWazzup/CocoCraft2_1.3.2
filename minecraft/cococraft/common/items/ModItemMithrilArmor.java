@@ -8,11 +8,11 @@ import net.minecraft.src.ItemArmor;
 import net.minecraft.src.ItemStack;
 import net.minecraftforge.common.IArmorTextureProvider;
 
-public class ModItemCocoArmor extends ItemArmor implements IArmorTextureProvider{
+public class ModItemMithrilArmor extends ItemArmor implements IArmorTextureProvider{
 
 	CocoCraft cc;
 	
-	public ModItemCocoArmor(int i, EnumArmorMaterial material, int j, int k)
+	public ModItemMithrilArmor(int i, EnumArmorMaterial material, int j, int k)
 	{
 		super(i, material, j, k);
 		this.maxStackSize = 1;
@@ -24,14 +24,14 @@ public class ModItemCocoArmor extends ItemArmor implements IArmorTextureProvider
 	}
 	public String getArmorTextureFile(ItemStack itemstack)
 	{
-		if(itemstack.itemID == cc.CocoHelmet.shiftedIndex || itemstack.itemID == cc.CocoChest.shiftedIndex || itemstack.itemID == cc.CocoBoots.shiftedIndex)
+		if(itemstack.itemID == cc.MithrilHelmet.shiftedIndex || itemstack.itemID == cc.MithrilChest.shiftedIndex || itemstack.itemID == cc.MithrilBoots.shiftedIndex)
 		{
-			return "/CC/Armor/coco_1.png";
+			return "/CC/Armor/mithril_1.png";
 		}
-        if(itemstack.itemID == cc.CocoLegs.shiftedIndex)
+        if(itemstack.itemID == cc.MithrilLegs.shiftedIndex)
         {
-                return "/CC/Armor/coco_2.png";
+                return "/CC/Armor/mithril_2.png";
         }
-		return "CC/Armor/coco_2.png";
+		return "CC/Armor/mithril_2.png";
 	}
 }

@@ -41,6 +41,11 @@ public class ItemOreBlock extends ItemBlock
 			name = "amethystBlock";
 			break;
 		}
+		case 4:
+		{
+			name = "superStone";
+			break;
+		}
 		default : name = "cocoBlock";
 		}
 		return getItemName() + "." + name;

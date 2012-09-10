@@ -1,14 +1,14 @@
 package cococraft.client;
 
-import net.minecraftforge.client.MinecraftForgeClient;
 import cococraft.common.CommonProxyCocoCraft;
+import net.minecraftforge.client.MinecraftForgeClient;
 
-public class ClientProxyCocoCraft extends CommonProxyCocoCraft
-{
-	@Override
+public class ClientProxyCocoCraft extends CommonProxyCocoCraft{
+
 	public void registerRenderThings()
 	{
 		MinecraftForgeClient.preloadTexture("/CC/Blocks.png");
 		MinecraftForgeClient.preloadTexture("/CC/Items.png");
+		
 	}
 }
