@@ -1,4 +1,4 @@
-Added Armor, properly. Added SuperStone!
+Started to clean up code, because it was/is a mess.
 
 What to be added:
 
