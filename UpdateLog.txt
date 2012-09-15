@@ -1,4 +1,4 @@
-Started to clean up code, because it was/is a mess.
+Rewritten everything, again. Added ores, oreblocks and ingots.
 
 What to be added:
 

@@ -1,25 +1,27 @@
-package cococraft.common.blocks;
+package cococraft2.common.blocks;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.ItemBlock;
 import net.minecraft.src.ItemStack;
 
-public class ItemOreBlock extends ItemBlock
+public class ItemBlockOreBlock extends ItemBlock
 {
-
-	public ItemOreBlock(int i, Block block)
+	public ItemBlockOreBlock(int i, Block block)
 	{
 		super(i);
 		setHasSubtypes(true);
 	}
-	public int getMetadata(int par1)
+	
+	public int getMetadata(int i)
 	{
-		return par1;
+		return i;
 	}
-	public String getItemNameIS(ItemStack itemstack)
+	
+	public String getItemNameIS(ItemStack item)
 	{
-		String name = "";
-		switch(itemstack.getItemDamage())
+		String name  = "";
+
+		switch(item.getItemDamage())
 		{
 		case 0:
 		{
@@ -46,9 +48,8 @@ public class ItemOreBlock extends ItemBlock
 			name = "superStone";
 			break;
 		}
-		default : name = "cocoBlock";
+		default: name = "cocoBlock";
 		}
 		return getItemName() + "." + name;
 	}
-	
 }

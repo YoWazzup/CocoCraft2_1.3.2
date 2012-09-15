@@ -1,23 +1,27 @@
-package cococraft.common.blocks;
+package cococraft2.common.blocks;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.ItemBlock;
 import net.minecraft.src.ItemStack;
 
-public class ModItemOre extends ItemBlock{
-
-	public ModItemOre(int i, Block block) {
+public class ItemBlockOre extends ItemBlock
+{
+	public ItemBlockOre(int i, Block block)
+	{
 		super(i);
 		setHasSubtypes(true);
 	}
-	public int getMetadata(int par1)
+	
+	public int getMetadata(int i)
 	{
-		return par1;
+		return i;
 	}
-	public String getItemNameIS(ItemStack itemstack)
+	
+	public String getItemNameIS(ItemStack item)
 	{
-		String name = "";
-		switch(itemstack.getItemDamage())
+		String name  = "";
+
+		switch(item.getItemDamage())
 		{
 		case 0:
 		{
@@ -43,5 +47,4 @@ public class ModItemOre extends ItemBlock{
 		}
 		return getItemName() + "." + name;
 	}
-
 }

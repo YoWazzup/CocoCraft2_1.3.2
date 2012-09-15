@@ -1,18 +1,19 @@
-package cococraft.common.items;
+package cococraft2.common.items;
 
+import cococraft2.client.ClientProxy;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;
 
+
 public class ModItem extends Item{
 
-	public ModItem(int i) {
-		super(i);
-		//Displays the items on the Material Tab in creative mode.
+	protected ModItem(int par1) {
+		super(par1);
 		this.setTabToDisplayOn(CreativeTabs.tabMaterials);
 	}
 	public String getTextureFile()
 	{
-		return "/CC/Items.png";
+		return ClientProxy.ItemTex;
 	}
 
 }
