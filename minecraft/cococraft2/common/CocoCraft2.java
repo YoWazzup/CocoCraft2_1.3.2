@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.ItemStack;
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.MinecraftForge;
 import cococraft2.common.blocks.CocoCraftBlocks;
 import cococraft2.common.items.CocoCraftItems;
 import cpw.mods.fml.common.Mod;
@@ -44,6 +45,7 @@ public class CocoCraft2
 		GameRegistry.registerWorldGenerator(new WorldGenerator());
 		
 		addSmelting();
+		setToolClass();
 		
 	}
 	public void addSmelting()
@@ -51,6 +53,27 @@ public class CocoCraft2
 		addMetaSmelting(blocks.Ore.blockID, 0, new ItemStack(items.CocoIngot));
 		addMetaSmelting(blocks.Ore.blockID, 1, new ItemStack(items.MithrilIngot));
 		addMetaSmelting(blocks.Ore.blockID, 2, new ItemStack(items.SilverIngot));
+		
+	}
+	public void setToolClass()
+	{
+		MinecraftForge.setToolClass(items.CocoPickaxe, "pickaxe", 2);
+		MinecraftForge.setToolClass(items.CocoAxe, "axe", 2);
+		MinecraftForge.setToolClass(items.CocoShovel, "shovel", 2);
+		MinecraftForge.setToolClass(items.CocoSword, "sword", 2);
+		MinecraftForge.setToolClass(items.CocoHoe, "hoe", 2);
+		
+		MinecraftForge.setToolClass(items.MithrilPickaxe, "pickaxe", 2);
+		MinecraftForge.setToolClass(items.MithrilAxe, "axe", 2);
+		MinecraftForge.setToolClass(items.MithrilShovel, "shovel", 2);
+		MinecraftForge.setToolClass(items.MithrilSword, "sword", 2);
+		MinecraftForge.setToolClass(items.MithrilHoe, "hoe", 2);
+		
+		MinecraftForge.setToolClass(items.SilverPickaxe, "pickaxe", 2);
+		MinecraftForge.setToolClass(items.SilverAxe, "axe", 2);
+		MinecraftForge.setToolClass(items.SilverShovel, "shovel", 2);
+		MinecraftForge.setToolClass(items.SilverSword, "sword", 2);
+		MinecraftForge.setToolClass(items.SilverHoe, "hoe", 2);
 		
 	}
 	/**
