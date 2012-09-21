@@ -16,6 +16,8 @@ import net.minecraft.src.Material;
 
 public class BlockOre extends Block
 {
+	public static CocoCraftItems cci;
+	
 	public BlockOre(int i, int j)
 	{
 		super(i, j, Material.iron);
@@ -27,6 +29,8 @@ public class BlockOre extends Block
 	{
 		return ClientProxy.BlockTex;
 	}
+	
+
 	
 	public int getBlockTextureFromSideAndMetadata(int i, int j)
 	{
@@ -56,7 +60,7 @@ public class BlockOre extends Block
 		case 2:
 			return blockID;
 		case 3:
-			return CocoCraftItems.AmethystGem.shiftedIndex;
+			return cci.Ingots.shiftedIndex;
 			
 		default : return blockID;
 		}

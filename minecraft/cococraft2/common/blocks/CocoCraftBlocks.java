@@ -21,7 +21,7 @@ public class CocoCraftBlocks
 	//Block Instances
 	public static Block Ore;
 	public static Block OreBlock;
-	
+	//Machine Insyance
 	
 	//Shortened shit
 	public static GameRegistry gr;
@@ -33,7 +33,6 @@ public class CocoCraftBlocks
 		//Initialises the Blocks
 		Ore = new BlockOre(OresID, 0).setHardness(2F).setResistance(3F).setBlockName("Ores");
 		OreBlock = new BlockOreBlock(OreBlockID, 4).setHardness(3F).setResistance(4F).setBlockName("Blocks");
-		
 		
 		//Adds the Names
 		lg.instance().addStringLocalization("tile.Ores.cocoStone.name", "Coco Stone");
@@ -47,7 +46,9 @@ public class CocoCraftBlocks
 		lg.instance().addStringLocalization("tile.Blocks.amethystBlock.name", "Amethyst Block");
 		lg.instance().addStringLocalization("tile.Blocks.superStone.name", "Super Stone");
 		
+		
 		//Registers the Blocks
+				
 		
 		//Needed for Metadata
 		Item.itemsList[OresID] = new ItemBlockOre(OresID-256, Ore).setItemName("ores");
