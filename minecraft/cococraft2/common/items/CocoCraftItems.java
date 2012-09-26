@@ -26,6 +26,7 @@ public class CocoCraftItems
 	public static int MithrilPickaxeID, MithrilAxeID, MithrilShovelID, MithrilSwordID, MithrilHoeID;
 	public static int SilverPickaxeID, SilverAxeID, SilverShovelID, SilverSwordID,SilverHoeID;
 	public static int CocoHelmetID ,CocoChestID, CocoLegsID, CocoBootsID;
+	public static int CatalystID;
 
 	//Instances for the items
 	public static Item CocoPickaxe, CocoAxe, CocoShovel, CocoSword, CocoHoe;
@@ -35,6 +36,8 @@ public class CocoCraftItems
 
 	public static Item Ingots;
 
+	public static Item Catalyst;
+	
 	//Shortened shit
 	public static GameRegistry gr;
 	public static LanguageRegistry lg;
@@ -69,7 +72,7 @@ public class CocoCraftItems
 		CocoLegs = new ItemCocoArmor(CocoLegsID, cc2.COCO,  3, 2).setIconCoord(2,3).setItemName("CocoLegs");
 		CocoBoots = new ItemCocoArmor(CocoBootsID, cc2.COCO,  3, 3).setIconCoord(3,3).setItemName("CocoBoots");
 
-
+		Catalyst = new ItemCatalyst(CatalystID).setItemName("Catalyst").setIconCoord(0, 7);
 
 		//Adds the names for items
 
@@ -113,6 +116,7 @@ public class CocoCraftItems
 		lg.addName(new ItemStack(Ingots,1,14), "Unworked Steel");
 		lg.addName(new ItemStack(Ingots,1,15), "Steel Ingot");
 		
+		lg.addName(Catalyst, "Catalyst");
 		
 
 
@@ -146,6 +150,8 @@ public class CocoCraftItems
 		CocoChestID = config.getOrCreateIntProperty("CocoChestID", "item", 15020).getInt();
 		CocoLegsID = config.getOrCreateIntProperty("CocoLegsID", "item", 15021).getInt();
 		CocoBootsID = config.getOrCreateIntProperty("CocoBootsID", "item", 15022).getInt();
+		
+		CatalystID = config.getOrCreateIntProperty("CatalystID", "item", 15023).getInt();
 
 		config.save();
 		return CocoHoeID;

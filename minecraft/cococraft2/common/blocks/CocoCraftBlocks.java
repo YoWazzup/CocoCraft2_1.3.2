@@ -21,7 +21,7 @@ public class CocoCraftBlocks
 	//Block Instances
 	public static Block Ore;
 	public static Block OreBlock;
-	//Machine Insyance
+	//Machine Instance
 	
 	//Shortened shit
 	public static GameRegistry gr;

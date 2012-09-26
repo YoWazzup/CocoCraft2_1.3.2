@@ -56,6 +56,7 @@ public class CocoCraft2
 		CocoCraftBlocks.init();
 		CocoCraftItems.init();
 		CocoRecipes.init();
+		AchievementHandler.init();
 		
 		GameRegistry.registerWorldGenerator(new WorldGenerator());
 		
