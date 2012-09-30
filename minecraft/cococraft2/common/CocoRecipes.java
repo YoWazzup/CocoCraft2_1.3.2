@@ -21,7 +21,7 @@ public class CocoRecipes
 		addToolRecipes();
 		addRegularRecipes();
 		
-		addCatalystRecipes();
+		
 	}
 
 	private static void addRegularRecipes() 
@@ -70,16 +70,5 @@ public class CocoRecipes
 
 	}
 	
-	//Shapeless recipes for catalyst, sortof like EE's P-Stone.
-	private static void addCatalystRecipes()
-	{
-		ItemStack[] possibleRockItems = new ItemStack[]{new ItemStack(Block.cobblestone), new ItemStack(Block.stone), new ItemStack(Block.dirt), new ItemStack(Block.stoneBrick)};
-		ItemStack[] possibleWoodItems = new ItemStack[]{};
-		
-		for(int i = 0; i < 4; i++)
-		{
-			gr.addShapelessRecipe(new ItemStack(Block.planks, 1), new Object[]{items.Catalyst, possibleRockItems[i], possibleRockItems[i], possibleRockItems[i], possibleRockItems[i]});
-			
-		}
-	}
+	
 }

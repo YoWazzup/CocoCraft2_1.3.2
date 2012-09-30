@@ -1,5 +1,8 @@
 package cococraft2.common;
 
+import cococraft2.client.machine.GuiCrusher;
+import cococraft2.common.machine.ContainerCrusher;
+import cococraft2.common.machine.TileEntityCrusher;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ModLoader;
 import net.minecraft.src.TileEntity;
@@ -38,7 +41,7 @@ public class CommonProxy implements IGuiHandler
 		{
 			switch(ID)
 			{
-			//case 0: return new ContainerCrusher(player.inventory, ((TileEntityCrusher)tileEntity));
+			case 5: return new ContainerCrusher(player.inventory, ((TileEntityCrusher)tileEntity));
 
 			}
 
@@ -54,7 +57,7 @@ public class CommonProxy implements IGuiHandler
 		{
 			switch(ID)
 			{
-			//case 0: return new GuiCrusher(player.inventory, ((TileEntityCrusher)tileEntity));
+			case 5: return new GuiCrusher(player.inventory, ((TileEntityCrusher)tileEntity));
 
 			}
 

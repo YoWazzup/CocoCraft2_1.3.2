@@ -36,7 +36,6 @@ public class CocoCraftItems
 
 	public static Item Ingots;
 
-	public static Item Catalyst;
 	
 	//Shortened shit
 	public static GameRegistry gr;
@@ -67,13 +66,12 @@ public class CocoCraftItems
 		SilverSword = new ModSword(SilverSwordID, cc2.Silver).setItemName("SilverSword").setIconCoord(13,1);
 		SilverHoe = new ModHoe(SilverHoeID, cc2.Silver).setItemName("SilverHoe").setIconCoord(14,1);
 
-		CocoHelmet = new ItemCocoArmor(CocoHelmetID, cc2.COCO, 3, 0).setIconCoord(0,3).setItemName("CocoHelmet");
-		CocoChest = new ItemCocoArmor(CocoChestID, cc2.COCO,  3, 1).setIconCoord(1,3).setItemName("CocoChest");
-		CocoLegs = new ItemCocoArmor(CocoLegsID, cc2.COCO,  3, 2).setIconCoord(2,3).setItemName("CocoLegs");
-		CocoBoots = new ItemCocoArmor(CocoBootsID, cc2.COCO,  3, 3).setIconCoord(3,3).setItemName("CocoBoots");
+		CocoHelmet = new ItemCocoArmor(CocoHelmetID, cc2.COCO, ModLoader.addArmor("Coco"), 0).setIconCoord(0,3).setItemName("CocoHelmet");
+		CocoChest = new ItemCocoArmor(CocoChestID, cc2.COCO,  ModLoader.addArmor("Coco"), 1).setIconCoord(1,3).setItemName("CocoChest");
+		CocoLegs = new ItemCocoArmor(CocoLegsID, cc2.COCO,  ModLoader.addArmor("Coco"), 2).setIconCoord(2,3).setItemName("CocoLegs");
+		CocoBoots = new ItemCocoArmor(CocoBootsID, cc2.COCO,  ModLoader.addArmor("Coco"), 3).setIconCoord(3,3).setItemName("CocoBoots");
 
-		Catalyst = new ItemCatalyst(CatalystID).setItemName("Catalyst").setIconCoord(0, 7);
-
+		
 		//Adds the names for items
 
 		lg.addName(CocoPickaxe, "Coco Pickaxe");
@@ -116,7 +114,7 @@ public class CocoCraftItems
 		lg.addName(new ItemStack(Ingots,1,14), "Unworked Steel");
 		lg.addName(new ItemStack(Ingots,1,15), "Steel Ingot");
 		
-		lg.addName(Catalyst, "Catalyst");
+		
 		
 
 
@@ -151,7 +149,7 @@ public class CocoCraftItems
 		CocoLegsID = config.getOrCreateIntProperty("CocoLegsID", "item", 15021).getInt();
 		CocoBootsID = config.getOrCreateIntProperty("CocoBootsID", "item", 15022).getInt();
 		
-		CatalystID = config.getOrCreateIntProperty("CatalystID", "item", 15023).getInt();
+		
 
 		config.save();
 		return CocoHoeID;

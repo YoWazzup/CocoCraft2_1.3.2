@@ -1,18 +1,24 @@
 package cococraft2.common;
 
+import net.minecraft.src.Block;
 import net.minecraft.src.EnumArmorMaterial;
 import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.FurnaceRecipes;
+import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import cococraft2.common.blocks.CocoCraftBlocks;
 import cococraft2.common.items.CocoCraftItems;
+import cococraft2.common.machine.CrusherRecipes;
+import cococraft2.common.machine.TileEntityCrusher;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -46,12 +52,19 @@ public class CocoCraft2
 	@SidedProxy(clientSide = "cococraft2.client.ClientProxy", serverSide = "cococraft2.common.ClientProxy")
 	public static CommonProxy proxy;
 	
+	@PreInit
+	public void preLoad(FMLPreInitializationEvent event)
+	{
+		NetworkRegistry.instance().registerGuiHandler(this, this.proxy);
+		
+		GameRegistry.registerTileEntity(TileEntityCrusher.class, "Crusher");
+	}
+	
 	
 	@Init
 	public void load(FMLInitializationEvent event)
 	{
 		proxy.registerRenderThings();
-		NetworkRegistry.instance().registerGuiHandler(this, this.proxy);
 		
 		CocoCraftBlocks.init();
 		CocoCraftItems.init();
@@ -67,10 +80,22 @@ public class CocoCraft2
 	}
 	public void addSmelting()
 	{
-		
+		//Smelting Recipes
 		addMetaSmelting(blocks.Ore.blockID, 0, new ItemStack(items.Ingots, 1, 0));
 		addMetaSmelting(blocks.Ore.blockID, 1, new ItemStack(items.Ingots, 1, 1));
 		addMetaSmelting(blocks.Ore.blockID, 2, new ItemStack(items.Ingots, 1, 2));
+		
+		//Non Metadata Crusher Recipes
+		addCrushing(Item.coal.shiftedIndex, new ItemStack(items.Ingots, 1, 6));
+		addCrushing(Block.oreIron.blockID, new ItemStack(items.Ingots, 2, 7));
+		addCrushing(Block.oreGold.blockID, new ItemStack(items.Ingots, 2, 8));
+		addCrushing(Block.obsidian.blockID, new ItemStack(items.Ingots, 1, 12));
+		
+		//Metadata Crusher Recipes
+		addMetaCrushing(blocks.Ore.blockID, 1, new ItemStack(items.Ingots, 2, 9));
+		addMetaCrushing(blocks.Ore.blockID, 2, new ItemStack(items.Ingots, 2, 10));
+		
+		
 		
 	}
 	
@@ -111,9 +136,14 @@ public class CocoCraft2
 	 * @param meta the metadata 
 	 * @param output output
 	 */
-	//public static void addMetaCrushing(int input, int meta, ItemStack output)
-	//{
-	//	CrusherRecipes.crushing().addMetaCrushing(input, meta, output);
-	//}
+	public static void addMetaCrushing(int input, int meta, ItemStack output)
+	{
+		CrusherRecipes.crushing().addMetaCrushing(input, meta, output);
+	}
+	
+	public static void addCrushing(int input, ItemStack output)
+	{
+		CrusherRecipes.crushing().addCrushing(input, output);
+	}
 	
 }
