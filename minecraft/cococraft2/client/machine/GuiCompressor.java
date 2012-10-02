@@ -6,18 +6,18 @@ import net.minecraft.src.*;
 
 import org.lwjgl.opengl.GL11;
 
-import cococraft2.common.machine.ContainerCrusher;
-import cococraft2.common.machine.TileEntityCrusher;
+import cococraft2.common.machine.ContainerCompressor;
+import cococraft2.common.machine.TileEntityCompressor;
 
 @SideOnly(Side.CLIENT)
-public class GuiCrusher extends GuiContainer
+public class GuiCompressor extends GuiContainer
 {
-	private TileEntityCrusher crusherInventory;
+	private TileEntityCompressor compressorInventory;
 
-	public GuiCrusher(InventoryPlayer par1InventoryPlayer, TileEntityCrusher par2TileEntityCrusher)
+	public GuiCompressor(InventoryPlayer par1InventoryPlayer, TileEntityCompressor par2TileEntityCompressor)
 	{
-		super(new ContainerCrusher(par1InventoryPlayer, par2TileEntityCrusher));
-		this.crusherInventory = par2TileEntityCrusher;
+		super(new ContainerCompressor(par1InventoryPlayer, par2TileEntityCompressor));
+		this.compressorInventory = par2TileEntityCompressor;
 	}
 
 	/**
@@ -25,7 +25,7 @@ public class GuiCrusher extends GuiContainer
 	 */
 	protected void drawGuiContainerForegroundLayer()
 	{
-		this.fontRenderer.drawString(StatCollector.translateToLocal("Crusher"), 60, 6, 4210752);
+		this.fontRenderer.drawString(StatCollector.translateToLocal("Compressor"), 100, 6, 4210752);
 		this.fontRenderer.drawString(StatCollector.translateToLocal("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
@@ -34,7 +34,7 @@ public class GuiCrusher extends GuiContainer
 	 */
 	protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3)
 	{
-		int var4 = this.mc.renderEngine.getTexture("/CC/Gui/Crusher.png");
+		int var4 = this.mc.renderEngine.getTexture("/CC/Gui/Compressor.png");
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		this.mc.renderEngine.bindTexture(var4);
 		int var5 = (this.width - this.xSize) / 2;
@@ -42,13 +42,13 @@ public class GuiCrusher extends GuiContainer
 		this.drawTexturedModalRect(var5, var6, 0, 0, this.xSize, this.ySize);
 		int var7;
 
-		if (this.crusherInventory.isBurning())
+		if (this.compressorInventory.isBurning())
 		{
-			var7 = this.crusherInventory.getBurnTimeRemainingScaled(12);
+			var7 = this.compressorInventory.getBurnTimeRemainingScaled(12);
 			this.drawTexturedModalRect(var5 + 32, var6 + 54 + 12 - var7, 176, 12 - var7, 14, var7 + 2);
 		}
 
-		var7 = this.crusherInventory.getCookProgressScaled(24);
+		var7 = this.compressorInventory.getCookProgressScaled(24);
 		this.drawTexturedModalRect(var5 + 79, var6 + 34, 176, 14, var7 + 1, 16);
 	}
 }

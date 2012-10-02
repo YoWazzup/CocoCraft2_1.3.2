@@ -18,12 +18,16 @@ public class CocoCraftBlocks
 	public static int OresID = configProps(config);
 	public static int OreBlockID;
 	public static int CrusherID;
+	public static int CompressorID;
+	public static int BlastFurnaceID;
 	
 	//Block Instances
 	public static Block Ore;
 	public static Block OreBlock;
 	//Machine Instance
 	public static Block Crusher;
+	public static Block Compressor;
+	public static Block BlastFurnace;
 	
 	//Shortened shit
 	public static GameRegistry gr;
@@ -36,7 +40,8 @@ public class CocoCraftBlocks
 		Ore = new BlockOre(OresID, 0).setHardness(2F).setResistance(3F).setBlockName("Ores");
 		OreBlock = new BlockOreBlock(OreBlockID, 4).setHardness(3F).setResistance(4F).setBlockName("Blocks");
 		Crusher = new BlockCrusher(CrusherID, false).setHardness(4F).setResistance(4F).setBlockName("Crusher");
-		
+		Compressor = new BlockCompressor(CompressorID, false).setHardness(4F).setResistance(4F).setBlockName("Compressor");
+		BlastFurnace = new BlockBlastFurnace(BlastFurnaceID, false).setHardness(4F).setResistance(4F).setBlockName("BlastFurnace");
 		
 		//Adds the Names
 		lg.instance().addStringLocalization("tile.Ores.cocoStone.name", "Coco Stone");
@@ -51,9 +56,13 @@ public class CocoCraftBlocks
 		lg.instance().addStringLocalization("tile.Blocks.superStone.name", "Super Stone");
 		
 		lg.addName(Crusher, "Crusher");
+		lg.addName(Compressor, "Compressor");
+		lg.addName(BlastFurnace, "Blast Furnace");
 		
 		//Registers the Blocks
 		gr.registerBlock(Crusher);
+		gr.registerBlock(Compressor);
+		gr.registerBlock(BlastFurnace);
 		
 		//Needed for Metadata
 		Item.itemsList[OresID] = new ItemBlockOre(OresID-256, Ore).setItemName("ores");
@@ -66,6 +75,8 @@ public class CocoCraftBlocks
 		OresID = Integer.parseInt(config.getOrCreateBlockIdProperty("OresID", 180).value);
 		OreBlockID = Integer.parseInt(config.getOrCreateBlockIdProperty("OreBlockID", 181).value);
 		CrusherID = Integer.parseInt(config.getOrCreateBlockIdProperty("CrusherID", 182).value);
+		CompressorID = Integer.parseInt(config.getOrCreateBlockIdProperty("CompressorID", 183).value);
+		BlastFurnaceID = Integer.parseInt(config.getOrCreateBlockIdProperty("BlastFurnaceID", 184).value);
 		
 		
 		config.save();

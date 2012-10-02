@@ -10,7 +10,10 @@ import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import cococraft2.common.blocks.CocoCraftBlocks;
 import cococraft2.common.items.CocoCraftItems;
+import cococraft2.common.machine.CompressorRecipes;
 import cococraft2.common.machine.CrusherRecipes;
+import cococraft2.common.machine.TileEntityBlastFurnace;
+import cococraft2.common.machine.TileEntityCompressor;
 import cococraft2.common.machine.TileEntityCrusher;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -58,6 +61,8 @@ public class CocoCraft2
 		NetworkRegistry.instance().registerGuiHandler(this, this.proxy);
 		
 		GameRegistry.registerTileEntity(TileEntityCrusher.class, "Crusher");
+		GameRegistry.registerTileEntity(TileEntityCompressor.class, "Compressor");
+		GameRegistry.registerTileEntity(TileEntityBlastFurnace.class, "BlastFurnace");
 	}
 	
 	
@@ -95,8 +100,11 @@ public class CocoCraft2
 		addMetaCrushing(blocks.Ore.blockID, 1, new ItemStack(items.Ingots, 2, 9));
 		addMetaCrushing(blocks.Ore.blockID, 2, new ItemStack(items.Ingots, 2, 10));
 		
+		//Metadata Compressing Recipes
 		
 		
+		//Non Metadata Compressing Recipes
+		//addCompressing(Block.dirt.blockID, new ItemStack(Item.diamond, 64));
 	}
 	
 	public void setToolClass()
@@ -144,6 +152,21 @@ public class CocoCraft2
 	public static void addCrushing(int input, ItemStack output)
 	{
 		CrusherRecipes.crushing().addCrushing(input, output);
+	}
+	/**
+	 * 
+	 * @param input input
+	 * @param meta the metadata 
+	 * @param output output
+	 */
+	public static void addMetaCompressing(int input, int meta, ItemStack output)
+	{
+		CompressorRecipes.compressing().addMetaCompressing(input, meta, output);
+	}
+	
+	public static void addCompressing(int input, ItemStack output)
+	{
+		CompressorRecipes.compressing().addCompressing(input, output);
 	}
 	
 }
