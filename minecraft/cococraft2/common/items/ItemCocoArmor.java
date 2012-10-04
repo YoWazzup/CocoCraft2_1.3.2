@@ -2,6 +2,7 @@ package cococraft2.common.items;
 
 import java.util.ArrayList;
 
+import cococraft2.client.ClientProxy;
 import cococraft2.common.CommonProxy;
 
 import net.minecraft.src.CreativeTabs;
@@ -23,7 +24,7 @@ public class ItemCocoArmor extends ItemArmor implements IArmorTextureProvider
     
     public String getTextureFile()
     {
-        return "/CC/Items.png";
+        return proxy.ItemTex;
     }
     public String getArmorTextureFile(ItemStack itemstack)
     {

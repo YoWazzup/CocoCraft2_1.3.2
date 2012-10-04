@@ -1,5 +1,6 @@
 package cococraft2.common;
 
+import cococraft2.client.ClientProxy;
 import cococraft2.client.machine.GuiBlastFurnace;
 import cococraft2.client.machine.GuiCompressor;
 import cococraft2.client.machine.GuiCrusher;
@@ -32,8 +33,6 @@ public class CommonProxy implements IGuiHandler
 		MinecraftForgeClient.preloadTexture(CocoArmor1);
 		MinecraftForgeClient.preloadTexture(CocoArmor2);
 	}
-
-
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) 
 	{
@@ -71,5 +70,7 @@ public class CommonProxy implements IGuiHandler
 		}
 		return null;
 	}
+
+	
 
 }

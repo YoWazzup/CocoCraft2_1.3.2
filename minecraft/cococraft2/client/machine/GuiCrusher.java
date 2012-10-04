@@ -25,7 +25,7 @@ public class GuiCrusher extends GuiContainer
 	 */
 	protected void drawGuiContainerForegroundLayer()
 	{
-		this.fontRenderer.drawString(StatCollector.translateToLocal("Crusher"), 60, 6, 4210752);
+		this.fontRenderer.drawString(StatCollector.translateToLocal("Crusher"), 100, 6, 4210752);
 		this.fontRenderer.drawString(StatCollector.translateToLocal("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 

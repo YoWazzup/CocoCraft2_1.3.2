@@ -2,6 +2,7 @@ package cococraft2.common.items;
 
 import java.util.List;
 
+import cococraft2.client.ClientProxy;
 import cococraft2.common.CommonProxy;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;

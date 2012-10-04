@@ -18,9 +18,11 @@ import cococraft2.common.machine.TileEntityCrusher;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -52,20 +54,9 @@ public class CocoCraft2
 	@Instance
 	public static CocoCraft2 instance;
 	
-	@SidedProxy(clientSide = "cococraft2.client.ClientProxy", serverSide = "cococraft2.common.ClientProxy")
+	@SidedProxy(clientSide = "cococraft2.client.ClientProxy", serverSide = "cococraft2.common.CommonProxy")
 	public static CommonProxy proxy;
-	
-	@PreInit
-	public void preLoad(FMLPreInitializationEvent event)
-	{
-		NetworkRegistry.instance().registerGuiHandler(this, this.proxy);
 		
-		GameRegistry.registerTileEntity(TileEntityCrusher.class, "Crusher");
-		GameRegistry.registerTileEntity(TileEntityCompressor.class, "Compressor");
-		GameRegistry.registerTileEntity(TileEntityBlastFurnace.class, "BlastFurnace");
-	}
-	
-	
 	@Init
 	public void load(FMLInitializationEvent event)
 	{
@@ -76,19 +67,31 @@ public class CocoCraft2
 		CocoRecipes.init();
 		AchievementHandler.init();
 		
+		NetworkRegistry.instance().registerGuiHandler(this, this.proxy);
+		
 		GameRegistry.registerWorldGenerator(new WorldGenerator());
 		
+		GameRegistry.registerTileEntity(TileEntityCrusher.class, "Crusher");
+		GameRegistry.registerTileEntity(TileEntityCompressor.class, "Compressor");
+		GameRegistry.registerTileEntity(TileEntityBlastFurnace.class, "BlastFurnace");
 		
 		addSmelting();
 		setToolClass();
 		
 	}
+	
 	public void addSmelting()
 	{
 		//Smelting Recipes
 		addMetaSmelting(blocks.Ore.blockID, 0, new ItemStack(items.Ingots, 1, 0));
 		addMetaSmelting(blocks.Ore.blockID, 1, new ItemStack(items.Ingots, 1, 1));
 		addMetaSmelting(blocks.Ore.blockID, 2, new ItemStack(items.Ingots, 1, 2));
+		
+		addMetaSmelting(items.Ingots.shiftedIndex, 9, new ItemStack(items.Ingots, 1, 1));
+		addMetaSmelting(items.Ingots.shiftedIndex, 10, new ItemStack(items.Ingots, 1, 2));
+		addMetaSmelting(items.Ingots.shiftedIndex, 7, new ItemStack(Item.ingotIron, 1));
+		addMetaSmelting(items.Ingots.shiftedIndex, 8, new ItemStack(Item.ingotGold, 1));
+		
 		
 		//Non Metadata Crusher Recipes
 		addCrushing(Item.coal.shiftedIndex, new ItemStack(items.Ingots, 1, 6));

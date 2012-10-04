@@ -3,6 +3,7 @@ package cococraft2.common.blocks;
 import java.util.List;
 
 import cococraft2.client.ClientProxy;
+import cococraft2.common.CommonProxy;
 
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
@@ -22,7 +23,7 @@ public class BlockOreBlock extends Block
 	
 	public String getTextureFile()
 	{
-		return ClientProxy.BlockTex;
+		return CommonProxy.BlockTex;
 	}
 	
 	public int getBlockTextureFromSideAndMetadata(int i, int j)

@@ -4,6 +4,7 @@ import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 import java.util.Random;
 
+import cococraft2.client.ClientProxy;
 import cococraft2.common.CocoCraft2;
 import cococraft2.common.CommonProxy;
 import cococraft2.common.machine.TileEntityCrusher;

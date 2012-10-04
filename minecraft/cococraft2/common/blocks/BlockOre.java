@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import cococraft2.client.ClientProxy;
+import cococraft2.common.CommonProxy;
 import cococraft2.common.items.CocoCraftItems;
 
 import cpw.mods.fml.common.Side;
@@ -27,7 +28,7 @@ public class BlockOre extends Block
 	
 	public String getTextureFile()
 	{
-		return ClientProxy.BlockTex;
+		return CommonProxy.BlockTex;
 	}
 	
 

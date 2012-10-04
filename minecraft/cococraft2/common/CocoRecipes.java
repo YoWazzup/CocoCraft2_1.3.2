@@ -20,18 +20,23 @@ public class CocoRecipes
 		addShaplessRecipes();
 		addToolRecipes();
 		addRegularRecipes();
+		lol();
 		
 		
 	}
 
 	private static void addRegularRecipes() 
 	{	
-		ItemStack[] ingots = new ItemStack[]{new ItemStack(items.Ingots, 1, 0), new ItemStack(items.Ingots, 1, 1), new ItemStack(items.Ingots,1 ,2), new ItemStack(items.Ingots, 1, 3)};
 		
-		for(int i=0;i<4;i++)
-		{
-			gr.addRecipe(new ItemStack(blocks.OreBlock, 1, i), new Object[]{"III","III","III", 'I', ingots[i]});
-		}
+		
+		gr.addRecipe(new ItemStack(blocks.OreBlock, 3, 4), new Object[]{"L L", " D ", "L L", 'L', Block.blockLapis, 'D', Block.stone});
+		
+		gr.addRecipe(new ItemStack(blocks.Crusher, 1), new Object[]{"SMS", "SDS", "SDS", 'S', new ItemStack(blocks.OreBlock, 1, 4), 'M', new ItemStack(items.Ingots, 1, 11), 'D', Item.diamond});
+		gr.addRecipe(new ItemStack(blocks.Compressor, 1), new Object[]{"SMS", "SDS", "SDS", 'S', new ItemStack(blocks.OreBlock, 1, 4), 'M', new ItemStack(items.Ingots, 1, 0), 'D', Item.diamond});
+		gr.addRecipe(new ItemStack(blocks.BlastFurnace, 1), new Object[]{"SSS", "SDS", "SSS", 'S', new ItemStack(blocks.OreBlock, 1, 2), 'D', Block.blockSteel});
+		
+		gr.addRecipe(new ItemStack(items.Ingots, 2, 11), new Object[]{"GRG", "RSR", "GRG", 'G', Item.gunpowder, 'R', Item.redstone, 'S', Item.sugar});
+		
 		
 	}
 	private static void addToolRecipes() 
@@ -69,6 +74,13 @@ public class CocoRecipes
 	{
 
 	}
-	
-	
+	public static void lol()
+	{
+	ItemStack[] ingots = new ItemStack[]{new ItemStack(items.Ingots, 1, 0), new ItemStack(items.Ingots, 1, 1), new ItemStack(items.Ingots,1 ,2), new ItemStack(items.Ingots, 1, 3)};
+		
+		for(int i=0;i<4;i++)
+		{
+			gr.addRecipe(new ItemStack(blocks.OreBlock, 1, i), new Object[]{"III","III","III", 'I', ingots[i]});
+		}
+	}
 }
