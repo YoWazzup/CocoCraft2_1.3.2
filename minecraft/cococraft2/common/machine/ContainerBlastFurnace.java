@@ -113,14 +113,14 @@ public class ContainerBlastFurnace extends Container
 	        {
 	            ItemStack itemstack1 = slot.getStack();
 	            itemstack = itemstack1.copy();
-	            if (i == 2)
+	            if (i == 1)
 	            {
 	                if (!mergeItemStack(itemstack1, 3, 39, true))
 	                {
 	                    return null;
 	                }
 	            }
-	            else if (i >= 3 && i < 30)
+	            else if (i >= 2 && i < 30)
 	            {
 	                if (!mergeItemStack(itemstack1, 30, 39, false))
 	                {

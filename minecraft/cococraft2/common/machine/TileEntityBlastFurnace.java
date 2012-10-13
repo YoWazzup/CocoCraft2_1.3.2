@@ -348,6 +348,8 @@ public class TileEntityBlastFurnace extends TileEntity implements IInventory, IS
 		if(i1 == ccb.Ore.blockID && itemStack.getItemDamage() == 2 && i2 == 0) return new ItemStack(cci.Ingots, 1, 2);
 		if(i2 == i1 && i1 == ccb.Ore.blockID && itemStack.getItemDamage() == 2) return new ItemStack(cci.Ingots, 2, 2);
 		
+		if(i1 == ccb.OreBlock.blockID && itemStack.getItemDamage() == 5 && i2 == Item.ingotIron.shiftedIndex) return new ItemStack(cci.Ingots, 1, 14);
+		
 		return null;
 
 	}
@@ -363,7 +365,7 @@ public class TileEntityBlastFurnace extends TileEntity implements IInventory, IS
 			return 0;
 		}
 		int i = itemstack.getItem().shiftedIndex;
-		if(i == CocoCraftItems.Ingots.shiftedIndex && itemstack.getItemDamage() == 11)
+		if(i == Item.coal.shiftedIndex)
 		{
 			return 600;
 		}

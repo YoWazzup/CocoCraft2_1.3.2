@@ -1,9 +1,11 @@
 package cococraft2.common;
 
 import net.minecraft.src.Block;
+import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EnumArmorMaterial;
 import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.FurnaceRecipes;
+import net.minecraft.src.IInventory;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraftforge.common.EnumHelper;
@@ -131,6 +133,9 @@ public class CocoCraft2
 		MinecraftForge.setToolClass(items.SilverHoe, "hoe", 2);
 		
 	}
+	
+	
+	
 	/**
 	 * 
 	 * @param input

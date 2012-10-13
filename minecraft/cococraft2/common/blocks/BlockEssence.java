@@ -3,48 +3,42 @@ package cococraft2.common.blocks;
 import java.util.List;
 import java.util.Random;
 
-import cococraft2.client.ClientProxy;
 import cococraft2.common.CommonProxy;
 import cococraft2.common.items.CocoCraftItems;
-
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
+
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
+import net.minecraft.src.World;
 
-public class BlockOreBlock extends Block
+public class BlockEssence extends Block
 {
 	private static CocoCraftItems cci;
-	
-	public BlockOreBlock(int i, int j)
+
+	public BlockEssence(int i, int j)
 	{
 		super(i, j, Material.iron);
-		this.setCreativeTab(CreativeTabs.tabBlock);
-		this.setRequiresSelfNotify();
+		setCreativeTab(CreativeTabs.tabBlock);
+		setRequiresSelfNotify();
 	}
-	
 	public String getTextureFile()
 	{
 		return CommonProxy.BlockTex;
 	}
-	
 	public int getBlockTextureFromSideAndMetadata(int i, int j)
 	{
 		switch(j)
 		{
-		case 0 : return 4;
-		case 1 : return 5;
-		case 2 : return 6;
-		case 3 : return 7;
-		case 4 : return 8;
-		case 5 : return 10;
-		
-		default : return 4;
+		case 0 : return 9;
+		case 1 : return 9;
+		case 2 : return 9;
+		case 3 : return 9;
+		default : return 9;
 		}
 	}
-	
 	protected int damageDropped(int i)
 	{
 		return i;
@@ -54,27 +48,24 @@ public class BlockOreBlock extends Block
 		switch(i)
 		{
 		case 0:
-			return blockID;
+			return cci.FireEssence.shiftedIndex;
 		case 1:
-			return blockID;
+			return cci.AirEssence.shiftedIndex;
 		case 2:
-			return blockID;
+			return cci.WaterEssence.shiftedIndex;
 		case 3:
-			return blockID;
-		case 4:
-			return blockID;
-		case 5:
-			return blockID;
+			return cci.EarthEssence.shiftedIndex;
 			
-		default : return blockID;
+		default : return cci.FireEssence.shiftedIndex;
 		}
 	}
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(int i, CreativeTabs tabs, List list)
 	{
-		for(int j = 0; j < 6; j++)
+		for(int j = 0; j < 4; j++)
 		{
 			list.add(new ItemStack(i, 1, j));
 		}
 	}
+	
 }

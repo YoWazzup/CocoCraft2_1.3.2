@@ -26,7 +26,11 @@ public class CocoCraftItems
 	public static int MithrilPickaxeID, MithrilAxeID, MithrilShovelID, MithrilSwordID, MithrilHoeID;
 	public static int SilverPickaxeID, SilverAxeID, SilverShovelID, SilverSwordID,SilverHoeID;
 	public static int CocoHelmetID ,CocoChestID, CocoLegsID, CocoBootsID;
-	public static int CatalystID;
+	public static int HammerID, ItemBookTimeID;
+	public static int SteelPickaxeID, SteelAxeID, SteelShovelID, SteelSwordID,SteelHoeID;
+	
+	public static int FireEssenceID, WaterEssenceID, EarthEssenceID, AirEssenceID;
+	
 
 	//Instances for the items
 	public static Item CocoPickaxe, CocoAxe, CocoShovel, CocoSword, CocoHoe;
@@ -35,7 +39,10 @@ public class CocoCraftItems
 	public static Item CocoHelmet, CocoChest, CocoLegs, CocoBoots;
 
 	public static Item Ingots;
-
+	public static Item Hammer, ItemBookTime;
+	public static Item SteelPickaxe, SteelAxe, SteelShovel, SteelSword, SteelHoe;
+	public static Item FireEssence, WaterEssence, EarthEssence, AirEssence;
+	
 	
 	//Shortened shit
 	public static GameRegistry gr;
@@ -47,7 +54,8 @@ public class CocoCraftItems
 	{
 		//inits the items
 		Ingots = new ItemIngot(IngotsID).setItemName("Ingots");
-
+		Hammer = new ItemHammer(HammerID).setItemName("Hammer").setIconCoord(15, 2);
+		
 		CocoPickaxe = new ModPickaxe(CocoPickaxeID, cc2.Coco).setItemName("CocoPickaxe").setIconCoord(0,1);
 		CocoAxe = new ModAxe(CocoAxeID, cc2.Coco).setItemName("CocoAxe").setIconCoord(1,1);
 		CocoShovel = new ModShovel(CocoShovelID, cc2.Coco).setItemName("CocoShovel").setIconCoord(2,1);
@@ -71,6 +79,21 @@ public class CocoCraftItems
 		CocoLegs = new ItemCocoArmor(CocoLegsID, cc2.COCO,  ModLoader.addArmor("Coco"), 2).setIconCoord(2,3).setItemName("CocoLegs");
 		CocoBoots = new ItemCocoArmor(CocoBootsID, cc2.COCO,  ModLoader.addArmor("Coco"), 3).setIconCoord(3,3).setItemName("CocoBoots");
 
+		SteelPickaxe = new ModPickaxe(SteelPickaxeID, cc2.Steel).setItemName("SteelPickaxe").setIconCoord(9,2);
+		SteelAxe = new ModAxe(SteelAxeID, cc2.Steel).setItemName("SteelAxe").setIconCoord(10,2);
+		SteelShovel = new ModShovel(SteelShovelID, cc2.Steel).setItemName("SteelShovel").setIconCoord(11,2);
+		SteelSword = new ModSword(SteelSwordID, cc2.Steel).setItemName("SteelSword").setIconCoord(12,2);
+		SteelHoe = new ModHoe(SteelHoeID, cc2.Steel).setItemName("SteelHoe").setIconCoord(13,2);
+
+		ItemBookTime = new ItemBookTime(ItemBookTimeID).setItemName("ItemBookTime").setIconCoord(14, 2);
+		
+		FireEssence = new ItemEssence(FireEssenceID).setItemName("FireEssence").setIconCoord(2, 5);
+		AirEssence = new ItemEssence(AirEssenceID).setItemName("AirEssence").setIconCoord(4, 5);
+		WaterEssence = new ItemEssence(WaterEssenceID).setItemName("WaterEssence").setIconCoord(3, 5);
+		EarthEssence = new ItemEssence(EarthEssenceID).setItemName("EarthEssence").setIconCoord(1, 5);
+		
+		
+		
 		
 		//Adds the names for items
 
@@ -96,7 +119,23 @@ public class CocoCraftItems
 		lg.addName(CocoChest, "Coco Chest");
 		lg.addName(CocoLegs, "Coco Legs");
 		lg.addName(CocoBoots, "Coco Boots");
+		
+		lg.addName(Hammer, "Hammer");
+		
+		lg.addName(SteelPickaxe, "Steel Pickaxe");
+		lg.addName(SteelAxe, "Steel Axe");
+		lg.addName(SteelShovel, "Steel Shovel");
+		lg.addName(SteelSword, "Steel Sword");
+		lg.addName(SteelHoe, "Steel Hoe");
 
+		lg.addName(ItemBookTime, "Book of Time");
+		
+		lg.addName(FireEssence, "Fire Essence");
+		lg.addName(AirEssence, "Air Essence");
+		lg.addName(WaterEssence, "Water Essence");
+		lg.addName(EarthEssence, "Earth Essence");
+		
+		
 		lg.addName(new ItemStack(Ingots,1,0), "Coco Ingot");
 		lg.addName(new ItemStack(Ingots,1,1), "Mithril Ingot");
 		lg.addName(new ItemStack(Ingots,1,2), "Silver Ingot");
@@ -115,7 +154,7 @@ public class CocoCraftItems
 		lg.addName(new ItemStack(Ingots,1,15), "Steel Ingot");
 		
 		
-		
+		Hammer.setContainerItem(Hammer);
 
 
 
@@ -149,8 +188,22 @@ public class CocoCraftItems
 		CocoLegsID = config.getOrCreateIntProperty("CocoLegsID", "item", 15021).getInt();
 		CocoBootsID = config.getOrCreateIntProperty("CocoBootsID", "item", 15022).getInt();
 		
+		HammerID = config.getOrCreateIntProperty("HammerID", "item", 15023).getInt();
 		
+		SteelPickaxeID = config.getOrCreateIntProperty("SteelPickaxeID", "item", 15024).getInt();
+		SteelAxeID = config.getOrCreateIntProperty("SteelAxeID", "item", 15025).getInt();
+		SteelShovelID = config.getOrCreateIntProperty("SteelShovelID", "item", 15026).getInt();
+		SteelSwordID = config.getOrCreateIntProperty("SteelSwordID", "item", 15027).getInt();
+		SteelHoeID = config.getOrCreateIntProperty("SteelHoeID", "item", 15028).getInt();
 
+		ItemBookTimeID = config.getOrCreateIntProperty("ItemBookTimeID", "item", 15029).getInt();
+		
+		FireEssenceID = config.getOrCreateIntProperty("FireEssenceID", "item", 15030).getInt();
+		AirEssenceID = config.getOrCreateIntProperty("AirEssenceID", "item", 15031).getInt();
+		WaterEssenceID = config.getOrCreateIntProperty("WaterEssenceID", "item", 15032).getInt();
+		EarthEssenceID = config.getOrCreateIntProperty("EarthEssenceID", "item", 15033).getInt();
+		
+		
 		config.save();
 		return CocoHoeID;
 	}

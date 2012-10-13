@@ -59,6 +59,14 @@ public class WorldGenerator implements IWorldGenerator
 			int Zcoord = blockZ + random.nextInt(16);
 			(new WorldGenMinable(CocoCraftBlocks.Ore.blockID, 3, 2)).generate(world, random, Xcoord, Ycoord, Zcoord);
 		}
+		for(i = 0; i < 12; i++)
+		{
+			//Essence
+			int Xcoord = blockX + random.nextInt(16);
+			int Ycoord = random.nextInt(128);
+			int Zcoord = blockZ + random.nextInt(16);
+			(new WorldGenMinable(CocoCraftBlocks.Essence.blockID, -1, 4)).generate(world, random, Xcoord, Ycoord, Zcoord);
+		}
 	}
 
 	private void generateNether(World world, Random random, int i, int j) 

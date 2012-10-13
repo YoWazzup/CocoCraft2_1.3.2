@@ -4,19 +4,17 @@ import net.minecraft.src.Block;
 import net.minecraft.src.ItemBlock;
 import net.minecraft.src.ItemStack;
 
-public class ItemBlockOreBlock extends ItemBlock
+public class ItemBlockEssence extends ItemBlock
 {
-	public ItemBlockOreBlock(int i, Block block)
-	{
+
+	public ItemBlockEssence(int i, Block block) {
 		super(i);
 		setHasSubtypes(true);
 	}
-	
 	public int getMetadata(int i)
 	{
 		return i;
 	}
-	
 	public String getItemNameIS(ItemStack item)
 	{
 		String name  = "";
@@ -25,36 +23,27 @@ public class ItemBlockOreBlock extends ItemBlock
 		{
 		case 0:
 		{
-			name = "cocoBlock";
+			name = "fireEssence";
 			break;
 		}
 		case 1:
 		{
-			name = "mithrilBlock";
+			name = "airEssence";
 			break;
 		}
 		case 2:
 		{
-			name = "silverBlock";
+			name = "waterEssence";
 			break;
 		}
 		case 3:
 		{
-			name = "amethystBlock";
+			name = "earthEssence";
 			break;
 		}
-		case 4:
-		{
-			name = "superStone";
-			break;
-		}
-		case 5:
-		{
-			name = "coalBlock";
-			break;
-		}
-		default: name = "cocoBlock";
+		default: name = "fireEssence";
 		}
 		return getItemName() + "." + name;
 	}
+
 }

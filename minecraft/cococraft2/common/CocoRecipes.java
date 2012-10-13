@@ -20,7 +20,8 @@ public class CocoRecipes
 		addShaplessRecipes();
 		addToolRecipes();
 		addRegularRecipes();
-		lol();
+		oreBlockRecipes();
+		
 		
 		
 	}
@@ -37,7 +38,10 @@ public class CocoRecipes
 		
 		gr.addRecipe(new ItemStack(items.Ingots, 2, 11), new Object[]{"GRG", "RSR", "GRG", 'G', Item.gunpowder, 'R', Item.redstone, 'S', Item.sugar});
 		
+		gr.addRecipe(new ItemStack(blocks.OreBlock, 1, 5), new Object[]{"III","III","III", 'I', new ItemStack(items.Ingots,1, 6)});
+		gr.addShapelessRecipe(new ItemStack(items.Ingots, 9, 6), new Object[]{new ItemStack(blocks.OreBlock, 1, 5)});
 		
+		gr.addShapelessRecipe(new ItemStack(items.Ingots, 1, 15), new Object[] {new ItemStack(items.Hammer, 1, -1), new ItemStack(items.Ingots, 1, 14)});
 	}
 	private static void addToolRecipes() 
 	{
@@ -60,6 +64,12 @@ public class CocoRecipes
 		gr.addRecipe(new ItemStack(items.SilverSword, 1), new Object[] {" I ", " I ", " S ", 'I', new ItemStack(items.Ingots, 1, 2), 'S', Item.stick});
 		gr.addRecipe(new ItemStack(items.SilverHoe, 1), new Object[] {"II ", " S ", " S ", 'I', new ItemStack(items.Ingots, 1, 2), 'S', Item.stick});
 
+		gr.addRecipe(new ItemStack(items.SteelPickaxe, 1), new Object[] {"III", " S ", " S ", 'I', new ItemStack(items.Ingots, 1, 15), 'S', Item.stick});
+		gr.addRecipe(new ItemStack(items.SteelAxe, 1), new Object[] {"II ", "IS ", " S ", 'I', new ItemStack(items.Ingots, 1, 15), 'S', Item.stick});
+		gr.addRecipe(new ItemStack(items.SteelShovel, 1), new Object[] {" I ", " S ", " S ", 'I', new ItemStack(items.Ingots, 1, 15), 'S', Item.stick});
+		gr.addRecipe(new ItemStack(items.SteelSword, 1), new Object[] {" I ", " I ", " S ", 'I', new ItemStack(items.Ingots, 1, 15), 'S', Item.stick});
+		gr.addRecipe(new ItemStack(items.SteelHoe, 1), new Object[] {"II ", " S ", " S ", 'I', new ItemStack(items.Ingots, 1, 15), 'S', Item.stick});
+
 	}
 	private static void addShaplessRecipes() 
 	{
@@ -72,9 +82,13 @@ public class CocoRecipes
 	}
 	private static void addArmorRecipes() 
 	{
+		gr.addRecipe(new ItemStack(items.CocoChest, 1), new Object[] {"1 1", "111", "111", Character.valueOf('1'), new ItemStack(items.Ingots, 1, 0)});
+		gr.addRecipe(new ItemStack(items.CocoLegs, 1), new Object[] {"111", "1 1", "1 1", Character.valueOf('1'), new ItemStack(items.Ingots, 1, 0)});
+		gr.addRecipe(new ItemStack(items.CocoBoots, 1), new Object[] {"1 1", "1 1", Character.valueOf('1'), new ItemStack(items.Ingots, 1, 0)});
+		gr.addRecipe(new ItemStack(items.CocoHelmet, 1), new Object[] {"111", "1 1", Character.valueOf('1'), new ItemStack(items.Ingots, 1, 0)});
 
 	}
-	public static void lol()
+	public static void oreBlockRecipes()
 	{
 	ItemStack[] ingots = new ItemStack[]{new ItemStack(items.Ingots, 1, 0), new ItemStack(items.Ingots, 1, 1), new ItemStack(items.Ingots,1 ,2), new ItemStack(items.Ingots, 1, 3)};
 		

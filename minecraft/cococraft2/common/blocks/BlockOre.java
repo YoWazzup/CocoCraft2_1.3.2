@@ -42,6 +42,7 @@ public class BlockOre extends Block
 		case 2 : return 2;
 		case 3 : return 3;
 		
+		
 		default : return 0;
 		}
 	}
